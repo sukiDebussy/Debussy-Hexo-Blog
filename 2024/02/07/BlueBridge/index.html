@@ -9,17 +9,17 @@
   <meta name="description" content="蓝桥杯比赛竞赛提供文件 USB驱动程序（一般不会用到）  底层驱动代码参考  DS18B20温度传感器，一般省赛不会用，该配件在扩展版上  I2C驱动程序（重要）    芯片资料：板子上几乎所有芯片的手册，大多数用不到，重要的在于STM32的编程手册和参考手册。客观题中相关问题可以直接查阅手册。  库文件（STM32CubeMX配置完成之后该文件也一般不会用到）  液晶驱动参考程序（重点） 开始比">
 <meta property="og:type" content="article">
 <meta property="og:title" content="蓝桥杯比赛">
-<meta property="og:url" content="http://sukidebussy.blog.com/2024/02/07/%E8%93%9D%E6%A1%A5%E6%9D%AF%E6%AF%94%E8%B5%9B%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/index.html">
+<meta property="og:url" content="http://sukidebussy.blog.com/2024/02/07/BlueBridge/index.html">
 <meta property="og:site_name" content="Debussy">
 <meta property="og:description" content="蓝桥杯比赛竞赛提供文件 USB驱动程序（一般不会用到）  底层驱动代码参考  DS18B20温度传感器，一般省赛不会用，该配件在扩展版上  I2C驱动程序（重要）    芯片资料：板子上几乎所有芯片的手册，大多数用不到，重要的在于STM32的编程手册和参考手册。客观题中相关问题可以直接查阅手册。  库文件（STM32CubeMX配置完成之后该文件也一般不会用到）  液晶驱动参考程序（重点） 开始比">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="c:/Users/DELL/AppData/Roaming/Typora/typora-user-images/image-20240205222928958.png">
+<meta property="og:image" content="http://sukidebussy.blog.com/2024/02/07/BlueBridge/PWM.png">
 <meta property="article:published_time" content="2024-02-07T14:29:11.000Z">
-<meta property="article:modified_time" content="2024-02-07T14:33:35.079Z">
+<meta property="article:modified_time" content="2024-02-07T16:53:30.354Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="嵌入式开发 STM32 蓝桥杯">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="c:/Users/DELL/AppData/Roaming/Typora/typora-user-images/image-20240205222928958.png">
+<meta name="twitter:image" content="http://sukidebussy.blog.com/2024/02/07/BlueBridge/PWM.png">
   
     <link rel="alternate" href="/atom.xml" title="Debussy" type="application/atom+xml">
   
@@ -82,9 +82,9 @@
 </header>
 
       <div class="outer">
-        <section id="main"><article id="post-蓝桥杯比赛注意事项" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <section id="main"><article id="post-BlueBridge" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2024/02/07/%E8%93%9D%E6%A1%A5%E6%9D%AF%E6%AF%94%E8%B5%9B%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/" class="article-date">
+    <a href="/2024/02/07/BlueBridge/" class="article-date">
   <time class="dt-published" datetime="2024-02-07T14:29:11.000Z" itemprop="datePublished">2024-02-07</time>
 </a>
     
@@ -167,7 +167,7 @@
 </li>
 </ol>
 <h3 id="5-PWM输出"><a href="#5-PWM输出" class="headerlink" title="5 PWM输出"></a>5 PWM输出</h3><ol>
-<li><p>初始化：直接在CubeMX中配置好TIM与对应通道的PWM输出<img src="C:/Users/DELL/AppData/Roaming/Typora/typora-user-images/image-20240205222928958.png" alt="image-20240205222928958"></p>
+<li><p>初始化：直接在CubeMX中配置好TIM与对应通道的PWM输出<img src="/2024/02/07/BlueBridge/PWM.png" alt="PWM Config"></p>
 </li>
 <li><p>开始&#x2F;停止：直接调用库函数即可</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HAL_TIM_PWM_Start(&amp;htim3, TIM_CHANNEL_2);</span><br></pre></td></tr></table></figure>
@@ -201,7 +201,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://sukidebussy.blog.com/2024/02/07/%E8%93%9D%E6%A1%A5%E6%9D%AF%E6%AF%94%E8%B5%9B%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/" data-id="clsc0ych70000iwum8y2e1zex" data-title="蓝桥杯比赛" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="http://sukidebussy.blog.com/2024/02/07/BlueBridge/" data-id="clsc147kc0000ywum30r8eoyq" data-title="蓝桥杯比赛" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
@@ -276,7 +276,7 @@
           </li>
         
           <li>
-            <a href="/2024/02/07/%E8%93%9D%E6%A1%A5%E6%9D%AF%E6%AF%94%E8%B5%9B%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/">蓝桥杯比赛</a>
+            <a href="/2024/02/07/BlueBridge/">蓝桥杯比赛</a>
           </li>
         
       </ul>

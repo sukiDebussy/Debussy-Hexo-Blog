@@ -150,9 +150,11 @@
     <div class="divider"></div>
 
     <div class="content">
-        <h2 id="一、应用背景"><a href="#一、应用背景" class="headerlink" title="一、应用背景"></a>一、应用背景</h2><p>矿产资源勘探一直是一个国家重要的经济支柱，矿洞和矿场也是很多工人重要的工作场地。但是，与矿产相关的工作环境普遍存在极高的危险性，需要矿工拥有较强的安全防护意识。尽管如此，矿洞、矿场事故仍频频发生。为了提高矿工工作环境的安全度，我们设计了这款基于FPGA设计的矿洞辅助工作芯片，在芯片外部添加特定的模块电路，即可实现不同的功能，为矿工的工作提供辅助，对现场工作环境的安全性进行实时检测和预警。</p>
-<h2 id="二、机器人功能设计"><a href="#二、机器人功能设计" class="headerlink" title="二、机器人功能设计"></a>二、机器人功能设计</h2><p>机器人采取<strong>小车+机械臂</strong>为结构主体，在上面添加不同功能的模块扩展相应功能。</p>
-<ol>
+        <h2 id="一应用背景">一、应用背景</h2>
+<p>矿产资源勘探一直是一个国家重要的经济支柱，矿洞和矿场也是很多工人重要的工作场地。但是，与矿产相关的工作环境普遍存在极高的危险性，需要矿工拥有较强的安全防护意识。尽管如此，矿洞、矿场事故仍频频发生。为了提高矿工工作环境的安全度，我们设计了这款基于FPGA设计的矿洞辅助工作芯片，在芯片外部添加特定的模块电路，即可实现不同的功能，为矿工的工作提供辅助，对现场工作环境的安全性进行实时检测和预警。</p>
+<h2 id="二机器人功能设计">二、机器人功能设计</h2>
+<p>机器人采取<strong>小车+机械臂</strong>为结构主体，在上面添加不同功能的模块扩展相应功能。</p>
+<ol type="1">
 <li>通过<strong>视觉模块</strong>和<strong>机械臂模块</strong>结合实现工具的抓取和归位。</li>
 <li>通过<strong>温湿度传感器模块</strong>实时检测当前工作环境的温湿度，超过阈值则通过<strong>蜂鸣器（音响）</strong>进行预警。</li>
 <li>通过<strong>火焰传感器</strong>和<strong>烟雾传感器</strong>结合检测当前工作环境附近是否存在矿产资源的自燃现象，如果有则通过<strong>蜂鸣器（音响）</strong>进行报警。</li>
@@ -162,7 +164,11 @@
 <li>通过<strong>蓝牙模块</strong>和<strong>语言控制模块</strong>实现一定的人机交互，例如用手机APP连接蓝牙控制小车移动，控制小车机械臂，通过语言控制模块控制照明灯开关等。</li>
 <li>通过<strong>人体传感器（雷达跟踪）</strong>检测附近工人位置，进行实时跟随。</li>
 </ol>
-<h2 id="三、芯片模块设计"><a href="#三、芯片模块设计" class="headerlink" title="三、芯片模块设计"></a>三、芯片模块设计</h2><p><img src="models.png" alt="models"></p>
+<h2 id="三芯片模块设计">三、芯片模块设计</h2>
+<figure>
+<img src="models.png" alt="models">
+<figcaption aria-hidden="true">models</figcaption>
+</figure>
 
     </div>
 
@@ -176,7 +182,7 @@
         <p class="tags">
             
             <i class="icon"></i>
-            <a href="/tags/集创赛/" class="tag">#集创赛</a><a href="/tags/FPGA/" class="tag">#FPGA</a>
+            <a href="/tags/FPGA/" class="tag">#FPGA</a><a href="/tags/集创赛/" class="tag">#集创赛</a>
         </p>
         
     </div>

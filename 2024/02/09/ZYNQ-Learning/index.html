@@ -151,30 +151,35 @@
 
     <div class="content">
         <hr>
-<h2 id="一、ZYNQ"><a href="#一、ZYNQ" class="headerlink" title="一、ZYNQ"></a>一、ZYNQ</h2><h3 id="1-1-ZYNQ简介"><a href="#1-1-ZYNQ简介" class="headerlink" title="1.1 ZYNQ简介"></a>1.1 ZYNQ简介</h3><p>&emsp;&emsp;ZYNQ，即Zynq-7000 All Programmable Soc (APSoC)，赛灵思公司(AMD Xilinx)推出的新一代全可编程片上系统。实际上，<strong>ZYNQ = PS(Processing System，处理系统，ARM) + PL(Program Logic，可编程逻辑，实际上就是FPGA)</strong>。两个系统可以独立使用，二者通过AXI高速接口进行数据通信。<br>&emsp;&emsp;ZYNQ将处理器的软件可编程性与FPGA的硬件可编程性进行完美结合，以提供无与伦比的系统性能、灵活性和可扩展性。ZYNQ可以依靠片上的ARM内核运行Linux系统。<br>&emsp;&emsp;ZYNQ是基于ARM处理器的SoC，可满足复杂嵌入式系统的高性能、低功耗和多核处理器等要求。SoC(System on Chip)和早期的SoB(System on Board)相对应。SoC的成本更低，能在不同的系统单元之间实现更快更安全的数据传输，具有更高的系统运行速度，更低的功耗，更小的物理尺寸和更高的可靠性。</p>
-<p>&emsp;&emsp;Soc主要可以分为以下三类：</p>
-<ol>
-<li>基于ASIC的Soc</li>
-<li>可编程的片上系统(SOPC, System on Programmable Chip, 即FPGA)：灵活性很高，但是要实现这样的功能要使用的资源很多，导致最后实现的功能受限。</li>
-<li>全可编程片上系统(APSoC, All Programmable SoC，即ZYNQ)</li>
-</ol>
-<hr>
-<h2 id="二、FPGA（PL）简介"><a href="#二、FPGA（PL）简介" class="headerlink" title="二、FPGA（PL）简介"></a>二、FPGA（PL）简介</h2><p>&emsp;&emsp;FPGA（Field Programmable Gate Array，现场可编程门阵列），一种可以通过编程来修改其逻辑功能的数字集成电路（芯片）。Xilinx公司对自己的最小可编程单元起名为可配置逻辑块CLB（Configurable Logic Block），一个CLB由两个片（Slice）组成，每个片中包含多个查找表LUT（Look Up Table）和触发器FF（Flip-Flop）。</p>
-<p>&emsp;&emsp;FPGA的架构如下所示：</p>
-<ul>
-<li><strong>可编程IO单元</strong>：可将引脚配置为上拉或下拉、驱动电流、电平标准、输入、输出或双向等。</li>
-<li><strong>可编程逻辑单元（CLB）</strong></li>
-<li><strong>底层嵌入功能单元</strong>：例如PLL、DSP、时钟管理等</li>
-<li><strong>嵌入式块RAM（Block RAM）</strong>：用来存储数据</li>
-<li><strong>硬核</strong>：例如XADC，不是每一个厂家的每一个芯片都有。XADC可以实现高速AD转换，检测片上温度和电压等。</li>
-<li><strong>布线资源</strong></li>
-<li>…</li>
-</ul>
-<p>&emsp;&emsp;有以下两种PL架构，对应不同的ZYNQ型号</p>
-<ul>
-<li>Artix-Based devices：Z-7010，Z-7015，Z-7020</li>
-<li>Kintex-Based devices：Z-7030，Z-7045，Z-7100</li>
-</ul>
+<h2 id="一zynq">一、ZYNQ</h2>
+<h3 id="zynq简介">1.1 ZYNQ简介</h3>
+<p>  ZYNQ，即Zynq-7000 All Programmable Soc (APSoC)，赛灵思公司(AMD
+Xilinx)推出的新一代全可编程片上系统。实际上，<strong>ZYNQ =
+PS(Processing System，处理系统，ARM) + PL(Program
+Logic，可编程逻辑，实际上就是FPGA)</strong>。两个系统可以独立使用，二者通过AXI高速接口进行数据通信。
+  ZYNQ将处理器的软件可编程性与FPGA的硬件可编程性进行完美结合，以提供无与伦比的系统性能、灵活性和可扩展性。ZYNQ可以依靠片上的ARM内核运行Linux系统。
+  ZYNQ是基于ARM处理器的SoC，可满足复杂嵌入式系统的高性能、低功耗和多核处理器等要求。SoC(System
+on Chip)和早期的SoB(System on
+Board)相对应。SoC的成本更低，能在不同的系统单元之间实现更快更安全的数据传输，具有更高的系统运行速度，更低的功耗，更小的物理尺寸和更高的可靠性。</p>
+<p>  Soc主要可以分为以下三类： 1. 基于ASIC的Soc 2.
+可编程的片上系统(SOPC, System on Programmable Chip,
+即FPGA)：灵活性很高，但是要实现这样的功能要使用的资源很多，导致最后实现的功能受限。
+3. 全可编程片上系统(APSoC, All Programmable SoC，即ZYNQ) **** ##
+二、FPGA（PL）简介   FPGA（Field Programmable Gate
+Array，现场可编程门阵列），一种可以通过编程来修改其逻辑功能的数字集成电路（芯片）。Xilinx公司对自己的最小可编程单元起名为可配置逻辑块CLB（Configurable
+Logic
+Block），一个CLB由两个片（Slice）组成，每个片中包含多个查找表LUT（Look
+Up Table）和触发器FF（Flip-Flop）。</p>
+<p>  FPGA的架构如下所示： -
+<strong>可编程IO单元</strong>：可将引脚配置为上拉或下拉、驱动电流、电平标准、输入、输出或双向等。
+- <strong>可编程逻辑单元（CLB）</strong> -
+<strong>底层嵌入功能单元</strong>：例如PLL、DSP、时钟管理等 -
+<strong>嵌入式块RAM（Block RAM）</strong>：用来存储数据 -
+<strong>硬核</strong>：例如XADC，不是每一个厂家的每一个芯片都有。XADC可以实现高速AD转换，检测片上温度和电压等。
+- <strong>布线资源</strong> - ...</p>
+<p>  有以下两种PL架构，对应不同的ZYNQ型号 - Artix-Based
+devices：Z-7010，Z-7015，Z-7020 - Kintex-Based
+devices：Z-7030，Z-7045，Z-7100</p>
 
     </div>
 
@@ -188,7 +193,7 @@
         <p class="tags">
             
             <i class="icon"></i>
-            <a href="/tags/FPGA/" class="tag">#FPGA</a><a href="/tags/ZYNQ/" class="tag">#ZYNQ</a>
+            <a href="/tags/ZYNQ/" class="tag">#ZYNQ</a><a href="/tags/FPGA/" class="tag">#FPGA</a>
         </p>
         
     </div>

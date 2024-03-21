@@ -153,7 +153,7 @@
         <hr>
 <h2 id="一zynq-简介">一、ZYNQ 简介</h2>
 <h3 id="概述">1.1 概述</h3>
-<p>下面是ZYNQ的内部框图。<img src="image.png" alt="PS and PL in ZYNQ"></p>
+<p> <img src="image.png" alt="PS and PL in ZYNQ"></p>
 <p>  ZYNQ，即Zynq-7000 All Programmable Soc (APSoC)，赛灵思公司(AMD
 Xilinx)推出的新一代全可编程片上系统。实际上，<strong>ZYNQ =
 PS(Processing System，处理系统，ARM) + PL(Program
@@ -231,20 +231,14 @@ communication）：是一个轻量级的地址映射单次传输接口，占用�
 data）：面向高速数据流传输，去掉了地址传输，允许无限制的数据突发传输规模。</li>
 </ul>
 <h3 id="axi-总线协议接口">2.3 AXI 总线协议接口</h3>
-<figure>
-<img src="image-20240321213944787.png" alt="image-20240321213944787">
-<figcaption aria-hidden="true">image-20240321213944787</figcaption>
-</figure>
+<p> <img src="image-20240321213944787.png" alt="image-20240321213944787"></p>
 <ul>
 <li>AXI-GP（General-Purpose，4个通道）：通用AXI接口，包括两个32位主设备接口（用于发送）和两个32位从设备接口（用于接收），通过该接口可以访问PS的片内外设；</li>
 <li>AXI-HP（High-Performance，4个通道）：高性能/带宽的标准的接口，PL模块作为主设备连接，<strong>主要用于PL访问PS上的存储器接口</strong>，可以访问芯片外部的DDR芯片或片上的OCM（SRAM）；</li>
 <li>AXI-ACP（Accelerator Consistency
 Port，1个通道）：加速器一致性端口，ARM多核架构下的一种接口，用来管理DMA之类的不带缓存的AXI外设，PS（APU）作从设备用于接收来自PL的数据。</li>
 </ul>
-<figure>
-<img src="image-20240321220104190.png" alt="image-20240321220104190">
-<figcaption aria-hidden="true">image-20240321220104190</figcaption>
-</figure>
+<p> <img src="image-20240321220104190.png" alt="image-20240321220104190"></p>
 
     </div>
 

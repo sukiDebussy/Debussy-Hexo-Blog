@@ -203,7 +203,7 @@
 </ol>
 <h3 id="pwm输出">5 PWM输出</h3>
 <ol type="1">
-<li><p>初始化：直接在CubeMX中配置好TIM与对应通道的PWM输出<img src="PWM.png" alt="PWM Config"></p></li>
+<li><p>初始化：直接在CubeMX中配置好TIM与对应通道的PWM输出<img src="/2024/02/07/BlueBridge/PWM.png" alt="PWM Config"></p></li>
 <li><p>开始/停止：直接调用库函数即可</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HAL_TIM_PWM_Start(&amp;htim3, TIM_CHANNEL_2);</span><br></pre></td></tr></table></figure></li>
 <li><p>调节频率设置占空比：直接设置PSC（预分频系数，一般不用设置这个）、ARR（自动重装载值）、CCRx（捕获比较寄存器）的值即可：</p>

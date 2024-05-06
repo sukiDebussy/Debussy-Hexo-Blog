@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light dark">
   
-  <title>JavaScript学习笔记（一）丨基础语法和数据结构 - Debussy</title>
+  <title>JavaScript学习笔记 - Debussy</title>
   
     <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/sukiDebussy/pictures@master/test/favicon.ico">
   
@@ -16,7 +16,7 @@
   
   
   
-  <meta property="og:title" content="JavaScript学习笔记（一）丨基础语法和数据结构 - Debussy" />
+  <meta property="og:title" content="JavaScript学习笔记 - Debussy" />
   
   <meta property="og:type" content="article" />
   
@@ -144,7 +144,7 @@
         </div>
         
 
-        <h1 class="title">JavaScript学习笔记（一）丨基础语法和数据结构</h1>
+        <h1 class="title">JavaScript学习笔记</h1>
     </div>
 
     <div class="divider"></div>
@@ -425,6 +425,76 @@
 <h3 id="json对象">5.2 JSON对象</h3>
 <p>JSON是一种数据格式，用于传输特定数据，本质上就是一串字符串。JavaScript中一切皆为对象，任何JavaScript支持的类型都可以用JSON来表示。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="title class_">Debussy</span> = {</span><br><span class="line">    <span class="attr">name</span>: <span class="string">"Debussy"</span>,</span><br><span class="line">    <span class="attr">age</span>: <span class="number">20</span>,</span><br><span class="line">    <span class="attr">isMarried</span>: <span class="literal">false</span>,</span><br><span class="line">    <span class="attr">skills</span>: [<span class="string">"HTML"</span>, <span class="string">"CSS"</span>, <span class="string">"JS"</span>],</span><br><span class="line">    <span class="attr">greet</span>: <span class="keyword">function</span>(<span class="params"></span>) {</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">"Hello, my name is "</span> + <span class="variable language_">this</span>.<span class="property">name</span>);</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> jsonDebussy = <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(<span class="title class_">Debussy</span>);  <span class="comment">// 返回一个字符串，函数会被省略'{"name":"Debussy","age":20,"isMarried":false,"skills":["HTML","CSS","JS"]}'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> parsedDebussy = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(jsonDebussy);<span class="comment">// 返回一个对象</span></span><br></pre></td></tr></table></figure>
+<h2 id="bom和dom">6 BOM和DOM</h2>
+<h3 id="bom对象">6.1 BOM对象</h3>
+<p>在Web开发中，常用B（Browser）代表浏览器，S（Server）代表服务端。BOM全称为Browser
+Object Module，即浏览器对象模型。</p>
+<h4 id="window重要">6.1.1 <code>window</code>（重要）</h4>
+<p><code>window</code>对象可以有两层含义：一可以指浏览器窗口，二是可以指唯一的全局作用域。<code>window</code>有下面的一些常用的方法和属性：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">window</span>.<span class="title function_">alert</span>(<span class="string">'Hello'</span>);</span><br><span class="line"><span class="variable language_">window</span>.<span class="property">console</span>.<span class="title function_">log</span>(<span class="string">'World'</span>);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">window</span>.<span class="property">innerHeight</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">window</span>.<span class="property">innerWidth</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">window</span>.<span class="property">outerHeight</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">window</span>.<span class="property">outerWidth</span>);</span><br></pre></td></tr></table></figure>
+<figure>
+<img src="https://cdn.jsdelivr.net/gh/sukiDebussy/pictures@master/test/image-20240504002359321.png" alt="image-20240504002359321">
+<figcaption aria-hidden="true">image-20240504002359321</figcaption>
+</figure>
+<h4 id="navigator不建议使用">6.1.2
+<code>navigator</code>（不建议使用）</h4>
+<p><code>navigator</code>封装了浏览器的信息，它是<code>window</code>的一个属性。它比较常用的用法是获取当前的浏览器信息和用户信息，比如可以获知当前的网页打开使用的是什么浏览器，是手机浏览器还是PC浏览器，浏览器内核是什么，PC的OS信息等：</p>
+<figure>
+<img src="https://cdn.jsdelivr.net/gh/sukiDebussy/pictures@master/test/image-20240504003301819.png" alt="image-20240504003301819">
+<figcaption aria-hidden="true">image-20240504003301819</figcaption>
+</figure>
+<p>大多数时候不会使用<code>navigator</code>对象，因为它可以被人为修改。不建议使用这些属性来判断和编写代码。</p>
+<h4 id="screen">6.1.3 <code>screen</code></h4>
+<p>代表屏幕信息。浏览器的功能远比想象的强大，它甚至可以操作浏览器之外的很多部件，获取很多信息。</p>
+<figure>
+<img src="https://cdn.jsdelivr.net/gh/sukiDebussy/pictures@master/test/image-20240504003632278.png" alt="image-20240504003632278">
+<figcaption aria-hidden="true">image-20240504003632278</figcaption>
+</figure>
+<h4 id="location重要">6.1.4 <code>location</code>（重要）</h4>
+<p><code>location</code>可以获取当前页面的URL信息。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(location.<span class="property">host</span>);     <span class="comment">// 主机 127.0.0.1:5500</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(location.<span class="property">href</span>);     <span class="comment">// http://127.0.0.1:5500/test.html</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(location.<span class="property">pathname</span>); <span class="comment">// /test.html</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// location.reload();   // 刷新网页</span></span><br><span class="line"></span><br><span class="line">location.<span class="title function_">assign</span>(<span class="string">"https://www.baidu.com"</span>);   <span class="comment">// 跳转到百度（将该网站连接到一个新地址）</span></span><br></pre></td></tr></table></figure>
+<h4 id="document">6.1.5 <code>document</code></h4>
+<p><code>document</code>代表当前的页面的html文件中的DOM文档树。可以通过<code>document</code>获取当前浏览器中文档树的节点。能获取就能做到增删改查。</p>
+<figure>
+<img src="https://cdn.jsdelivr.net/gh/sukiDebussy/pictures@master/test/image-20240504005547447.png" alt="image-20240504005547447">
+<figcaption aria-hidden="true">image-20240504005547447</figcaption>
+</figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dl</span> <span class="attr">id</span>=<span class="string">"abc"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dt</span>&gt;</span>Debussy<span class="tag">&lt;/<span class="name">dt</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dd</span>&gt;</span>Debussy is learning JavaScript<span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dd</span>&gt;</span>Debussy must learning FPGA<span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dl</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// "use strict";</span></span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">let</span> dl = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">'abc'</span>);</span></span><br><span class="line"><span class="language-javascript">    <span class="variable language_">console</span>.<span class="title function_">log</span>(dl);</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure>
+<img src="https://cdn.jsdelivr.net/gh/sukiDebussy/pictures@master/test/image-20240504005954901.png" alt="image-20240504005954901">
+<figcaption aria-hidden="true">image-20240504005954901</figcaption>
+</figure>
+<p><code>document</code>还可以获取cookie。cookie包含了客户端的一些本地信息，通过这些信息，可能直接通过劫持这些cookie来非法登录网页，非法获取隐私等。服务器端可以设置cookie为httpOnly，就可以规避这个问题，提高网页使用安全性。</p>
+<h4 id="history">6.1.6 <code>history</code></h4>
+<p>代表浏览器的历史记录，通过这个对象可以前进和后退，但是不建议使用这种方法。浏览器网页的跳转还是建议在服务端实现。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">history.<span class="title function_">forward</span>();</span><br><span class="line">history.<span class="title function_">back</span>();</span><br></pre></td></tr></table></figure>
+<h3 id="dom对象">6.2 DOM对象</h3>
+<p><img src="https://s2.loli.net/2024/05/04/I6qfArds9cC2SuB.png"></p>
+<p>DOM全称Document Object
+Module，即文件对象模型。整个浏览器网页就是一个树形结构。通过操作DOM，可以实现网页元素的行为。<strong>要操作一个Dom节点，就必须先获得这个Dom节点</strong>。</p>
+<ul>
+<li>更新：更新Dom节点，例如给某个节点添加某个属性；</li>
+<li>遍历：得到Dom节点，例如可以通过<code>id</code>属性得到节点；</li>
+<li>删除：删除Dom节点；</li>
+<li>添加：添加一个新的节点。</li>
+</ul>
+<p>一个标签就是一个节点，在网页上就体现为一个元素。</p>
+<h4 id="获取dom节点">6.2.1 获取Dom节点</h4>
+<p>首先介绍（复习）一些常见的Dom节点及其作用：</p>
+<ul>
+<li><p><code>div</code>：<code>div</code> HTML
+元素是流式内容的<strong>通用容器</strong>。它对内容或布局没有影响。除非以某种方式使用
+CSS
+对其进行样式设置（例如，直接应用样式，或者对其父元素应用某种布局模型，如弹性盒子），否则它对内容或布局没有影响。</p></li>
+<li><p><code>dl</code>：list列表</p>
+<ul>
+<li><code>dt</code>：title表头</li>
+<li><code>dd</code>：description描述</li>
+</ul></li>
+</ul>
+<p><img src="https://s2.loli.net/2024/05/04/cy7hODngUR9r6aj.png"></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"father"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dl</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">h1</span> <span class="attr">class</span>=<span class="string">"title"</span>&gt;</span>This is a h1 node<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dt</span>&gt;</span>This is a dt node<span class="tag">&lt;/<span class="name">dt</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dd</span> <span class="attr">class</span>=<span class="string">"description"</span>&gt;</span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis laborum quia quos</span><br><span class="line">            sint repellat aut!</span><br><span class="line">            Fugiat et soluta exercitationem omnis rerum doloremque, doloribus, beatae culpa asperiores non minus</span><br><span class="line">            temporibus suscipit.<span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dl</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis dolorem nostrum, aliquid aspernatur</span><br><span class="line">        cumque at illum, accusamus reprehenderit eaque fugit reiciendis itaque. At enim vero maiores eius laboriosam</span><br><span class="line">        sunt natus.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// "use strict";</span></span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">let</span> h1 = <span class="variable language_">document</span>.<span class="title function_">getElementsByTagName</span>(<span class="string">"h1"</span>);               <span class="comment">// 通过标签名获取元素</span></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">let</span> dd = <span class="variable language_">document</span>.<span class="title function_">getElementsByClassName</span>(<span class="string">"description"</span>);    <span class="comment">// 通过类名获取元素</span></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">let</span> div_father = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">"father"</span>);         <span class="comment">// 通过id获取元素</span></span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">let</span> div_children = div_father.<span class="property">children</span>;             <span class="comment">// 获取父元素下的所有子元素</span></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">let</span> div_child_1 = div_father.<span class="property">firstElementChild</span>;     <span class="comment">// 获得第一个子元素 dl</span></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">let</span> div_child_2 = div_father.<span class="property">lastElementChild</span>;      <span class="comment">// 获得最后一个子元素 p</span></span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>上面的代码是原生代码，后续基本不使用。之后一般使用<code>jQuery()</code>获取Dom节点，但是了解原生写法还是很有必要的。</p>
 
     </div>
 
@@ -445,7 +515,16 @@
     
 
     <div class="container post-prev-next">
-        <a class="next"></a>
+        
+        <a href="/2024/05/06/English-words/" class="next">
+            <div>
+                <div class="text">
+                    <p class="label">Next</p>
+                    <h3 class="title">单词复习</h3>
+                </div>
+            </div>
+        </a>
+        
         
         <a href="/2024/02/15/ED-algorithms/" class="prev">
             <div>

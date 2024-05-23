@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light dark">
   
-  <title>fpga_camera_isp - Debussy</title>
+  <title>Qt_cpp_learning - Debussy</title>
   
     <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/sukiDebussy/pictures@master/test/favicon.ico">
   
@@ -16,15 +16,15 @@
   
   
   
-  <meta property="og:title" content="fpga_camera_isp - Debussy" />
+  <meta property="og:title" content="Qt_cpp_learning - Debussy" />
   
   <meta property="og:type" content="article" />
   
-  <meta property="og:url" content="http://sukidebussy.blog.com/2024/05/12/fpga-camera-isp/index.html" />
+  <meta property="og:url" content="http://sukidebussy.blog.com/2024/05/23/Qt-cpp-learning/index.html" />
   
   <meta property="og:image" content="/favicon.ico" />
   
-  <meta property="og:article:published_time" content="2024-05-12T07:09:45.000Z" />
+  <meta property="og:article:published_time" content="2024-05-23T05:37:05.000Z" />
   
   <meta property="og:article:author" content="Yun Zhang" />
   
@@ -139,32 +139,72 @@
         
         <div class="date" id="date">
             <span>May</span>
-            <span>12,</span>
+            <span>23,</span>
             <span>2024</span>
         </div>
         
 
-        <h1 class="title">fpga_camera_isp</h1>
+        <h1 class="title">Qt_cpp_learning</h1>
     </div>
 
     <div class="divider"></div>
 
     <div class="content">
-        <h1 id="fpga数字图像处理课程">FPGA数字图像处理课程</h1>
-<p><code>camera_capture</code>模块中的FIFO处理，解决时钟域不同的问题。OV5640传入的数据速度是24MHz，而系统的时钟为50MHz。</p>
+        <h1 id="qt-c-学习笔记">Qt C++ 学习笔记</h1>
+<h2 id="创建qt-creator工程">1 创建Qt Creator工程</h2>
+<p>按照如下的流程创建一个hello world工程。</p>
 <figure>
-<img src="https://s2.loli.net/2024/05/12/PsEcwSuNAG3m8pV.png" alt="image-20240512151237922">
-<figcaption aria-hidden="true">image-20240512151237922</figcaption>
+<img src="https://s2.loli.net/2024/05/23/fQAa5tCcFzu1l8e.png" alt="image-20240523133850336">
+<figcaption aria-hidden="true">image-20240523133850336</figcaption>
 </figure>
-<p>图像裁切控制逻辑（可能用不到）</p>
+<p>选择<code>qmake</code>后，项目构建使用的配置文件即为<code>.pro</code>文件。</p>
 <figure>
-<img src="https://s2.loli.net/2024/05/12/DhqK1zVHpXMfCN8.png" alt="image-20240512154515813">
-<figcaption aria-hidden="true">image-20240512154515813</figcaption>
+<img src="https://s2.loli.net/2024/05/23/b3UzXQ14Whw7MSc.png" alt="image-20240523133932440">
+<figcaption aria-hidden="true">image-20240523133932440</figcaption>
 </figure>
-<p>读FIFO控制逻辑</p>
 <figure>
-<img src="https://s2.loli.net/2024/05/12/4T8OJnChxUdtH6o.png" alt="image-20240512154539328">
-<figcaption aria-hidden="true">image-20240512154539328</figcaption>
+<img src="https://s2.loli.net/2024/05/23/Ag8UVT3EZh7NKsl.png" alt="image-20240523134032249">
+<figcaption aria-hidden="true">image-20240523134032249</figcaption>
+</figure>
+<p>没有翻译需求可以选择none</p>
+<figure>
+<img src="https://s2.loli.net/2024/05/23/173kYwQcySazVsu.png" alt="image-20240523134053309">
+<figcaption aria-hidden="true">image-20240523134053309</figcaption>
+</figure>
+<p>一个Qt项目必须选择一个开发套件，这里的MinGW是Windows平台上使用的GNU工具集，包含GNU
+C++编译器，可以在安装时选择安装不同的开发套件。除此之外常用的开发套件还有MSVC
+2019，但是这个开发套件必须搭配Visual
+Studio开发环境，太过臃肿，所以一般可以不使用。</p>
+<figure>
+<img src="https://s2.loli.net/2024/05/23/2TvrHygRfWJVPsd.png" alt="image-20240523134411016">
+<figcaption aria-hidden="true">image-20240523134411016</figcaption>
+</figure>
+<p>版本控制工具，不考虑版本控制可以不选。</p>
+<figure>
+<img src="https://s2.loli.net/2024/05/23/Xr24JHdy5LDn7gx.png" alt="image-20240523134523075">
+<figcaption aria-hidden="true">image-20240523134523075</figcaption>
+</figure>
+<h2 id="输出-hello-world">2 输出 Hello World</h2>
+<h3 id="项目构建选项">2.1 项目构建选项</h3>
+<p>构建（build）一个项目指的是根据构建系统（qmake或者CMake）的配置，对项目内的源文件执行编译和连接，生成可执行文件的完整过程。构建过程包含编译，二者的区别在于编译是对单个文件的操作，而构建是对整个项目所有相关文件的操作。</p>
+<figure>
+<img src="https://s2.loli.net/2024/05/23/XRUCpjTh6KI1rzL.png" alt="image-20240523141746259">
+<figcaption aria-hidden="true">image-20240523141746259</figcaption>
+</figure>
+<p>选择Projects即可打开项目设置界面。左侧可以看到所有的开发套件。右侧的shadow
+build规定了构建生成文件的输出格式。如果勾选，则构建项目后会在项目的同级目录下创建一个输出文件夹，文件夹的名字包含构建工程，使用的开发套件和构建模式信息；如果不勾选，构建后会在项目内部的文件夹创建<code>debug</code>和<code>release</code>两个文件夹用于存放输出文件。一般不勾选。</p>
+<figure>
+<img src="https://s2.loli.net/2024/05/23/J2vNjDrVPqXbBTs.png" alt="image-20240523142514352">
+<figcaption aria-hidden="true">image-20240523142514352</figcaption>
+</figure>
+<figure>
+<img src="https://s2.loli.net/2024/05/23/2Zeb7G9LW65ASEu.png" alt="image-20240523142547895">
+<figcaption aria-hidden="true">image-20240523142547895</figcaption>
+</figure>
+<p>项目有三种构建模式：<code>Debug</code>用于调试，二进制文件具有调试信息，编译时不进行优化；<code>Release</code>用于发布，不带有调试信息，编译时针对速度和文件大小进行了优化；<code>Profile</code>是二者之间的性能平衡版本，可以用于调试。所以，在断点调试时构建模式必须为<code>Debug</code>或者<code>Profile</code>。</p>
+<figure>
+<img src="https://s2.loli.net/2024/05/23/zv8r3Q6yp4JEgRh.png" alt="image-20240523143126213">
+<figcaption aria-hidden="true">image-20240523143126213</figcaption>
 </figure>
 
     </div>
@@ -176,32 +216,17 @@
             <p>This post is written by Yun Zhang, licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc/4.0">CC BY-NC 4.0</a>.</p>
         </div>
         
-        <p class="tags">
-            
-            <i class="icon"></i>
-            <a href="/tags/FPGA/" class="tag">#FPGA</a><a href="/tags/ISP/" class="tag">#ISP</a><a href="/tags/OV5640/" class="tag">#OV5640</a>
-        </p>
-        
     </div>
     
 
     <div class="container post-prev-next">
+        <a class="next"></a>
         
-        <a href="/2024/05/23/Qt-cpp-learning/" class="next">
-            <div>
-                <div class="text">
-                    <p class="label">Next</p>
-                    <h3 class="title">Qt_cpp_learning</h3>
-                </div>
-            </div>
-        </a>
-        
-        
-        <a href="/2024/05/09/course-comprehensive-ic-design/" class="prev">
+        <a href="/2024/05/12/fpga-camera-isp/" class="prev">
             <div>
                 <div class="text">
                     <p class="label">Previous</p>
-                    <h3 class="title">course_comprehensive_ic_design</>
+                    <h3 class="title">fpga_camera_isp</>
                 </div>
             </div>
         </a>

@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head prefix="og: https://ogp.me/ns#">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  
+  <title>vitis_hls_learning - Debussy</title>
+  
+    <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/sukiDebussy/pictures@master/test/favicon.ico">
+  
+  
+    <link rel='manifest' href='/manifest.json'>
+  
+
+  
+  
+  
+  <meta property="og:title" content="vitis_hls_learning - Debussy" />
+  
+  <meta property="og:type" content="article" />
+  
+  <meta property="og:url" content="http://sukidebussy.blog.com/2024/05/28/vitis-hls-learning/index.html" />
+  
+  <meta property="og:image" content="/favicon.ico" />
+  
+  <meta property="og:article:published_time" content="2024-05-28T13:44:48.000Z" />
+  
+  <meta property="og:article:author" content="Yun Zhang" />
+  
+  
+
+  
+<link rel="stylesheet" href="/css/var.css">
+
+  
+<link rel="stylesheet" href="/css/main.css">
+
+  
+<link rel="stylesheet" href="/css/typography.css">
+
+  
+<link rel="stylesheet" href="/css/code-highlighting.css">
+
+  
+<link rel="stylesheet" href="/css/components.css">
+
+  
+<link rel="stylesheet" href="/css/nav.css">
+
+  
+<link rel="stylesheet" href="/css/paginator.css">
+
+  
+<link rel="stylesheet" href="/css/footer.css">
+
+  
+<link rel="stylesheet" href="/css/post-list.css">
+
+  
+  
+<link rel="stylesheet" href="/css/rainbow-banner.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/toc.css">
+
+  
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/post.css">
+
+  
+  
+  
+  
+  
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+    <body
+        data-color-scheme="light"
+        data-uppercase-categories="true"
+        
+        data-rainbow-banner="true"
+        data-rainbow-banner-shown="always"
+        data-rainbow-banner-month="6"
+        data-rainbow-banner-colors="#e50000,#ff8d00,#ffee00,#008121,#004cff,#760188"
+        
+        data-config-root="/"
+        
+        data-toc="true"
+        data-toc-max-depth="4"
+        
+        
+    >
+        <nav id="theme-nav">
+    <div class="inner">
+        <a class="title" href="/">Debussy&#39;s Blog</a>
+        <div class="nav-arrow"></div>
+        <div class="nav-items">
+            <a class="nav-item nav-item-home" href="/">Home</a>
+            
+            
+            <a class="nav-item" href="/archives">Archives</a>
+            
+            
+            
+            <a class="nav-item" href="/friends">Friends</a>
+            
+            
+            
+            <a class="nav-item" href="/projects">Projects</a>
+            
+            
+            
+            <a class="nav-item" href="/about">About</a>
+            
+            
+            
+            <a class="nav-item nav-item-github nav-item-icon" href="https://github.com/sukiDebussy" target="_blank" aria-label="GitHub">&nbsp;</a>
+            
+            
+            
+            <a class="nav-item nav-item-search nav-item-icon" href="/search" target="_blank" aria-label="Search">&nbsp;</a>
+            
+            
+        </div>
+    </div>
+</nav>
+        
+<article class="post">
+    <div class="meta">
+        
+
+        
+        <div class="date" id="date">
+            <span>May</span>
+            <span>28,</span>
+            <span>2024</span>
+        </div>
+        
+
+        <h1 class="title">vitis_hls_learning</h1>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="content">
+        <h1 id="vitis-hls-学习笔记">Vitis HLS 学习笔记</h1>
+<h2 id="第一个vitis-hls工程">1 第一个Vitis HLS工程</h2>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">ifndef</span> __LED_CONTROL_H__</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> __LED_CONTROL_H__</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">"ap_int.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">"led_control.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> SYS_CLK_FREQ 500</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">led_control</span><span class="params">(ap_uint&lt;<span class="number">1</span>&gt; &amp;led)</span>  <span class="comment">// Arbitary Precision 任意精度</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">  <span class="type">unsigned</span> <span class="type">int</span> i = <span class="number">0</span>;</span><br><span class="line">  led = (ap_uint&lt;<span class="number">1</span>&gt;)<span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; SYS_CLK_FREQ - <span class="number">1</span>; i ++)</span><br><span class="line">  {</span><br><span class="line">    led = (i &lt; SYS_CLK_FREQ / <span class="number">2</span>) ? (~led) : (ap_uint&lt;<span class="number">1</span>&gt;)<span class="number">0</span>;</span><br><span class="line">      <span class="comment">// 如果写成下面的形式，时钟信号ap_clk会直接被优化掉</span></span><br><span class="line">        <span class="comment">// led = (i &lt; SYS_CLK_FREQ / 2) ? (ap_uint&lt;1&gt;)1 : (ap_uint&lt;1&gt;)0;</span></span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p>综合，导出RTL IP，创建一个Vivado工程，IP仓库选择Vitis
+HLS项目的存放路径，Vivado会自动识别到导出的IP。</p>
+<figure>
+<img src="https://s2.loli.net/2024/05/28/scDxvejN7ABtqna.png" alt="image-20240528214514634">
+<figcaption aria-hidden="true">image-20240528214514634</figcaption>
+</figure>
+<ul>
+<li><code>ap_start</code>：检测到上升沿时IP里面的代码就开始运行；当<code>ap_start</code>和<code>ap_done</code>都为高电平时，程序中的代码就会循环执行；如果<code>ap_start</code>为低电平，则一次执行完成之后<code>ap_done</code>输出一个时钟周期的高电平后不再重复执行。</li>
+<li><code>ap_done</code>：程序执行完毕之后，<code>ap_done</code>会输出一个时钟周期的高电平。</li>
+<li><code>ap_idle</code>：指示IP的状态，如果是高电平说明此时IP没有执行代码。</li>
+<li><code>ap_ready</code>：此时IP已经准备好接收新的数据。</li>
+<li><code>ap_clk</code>：时钟</li>
+<li><code>ap_rst</code>：复位，默认高电平复位，可以设置成低电平（<em>暂时不知道怎么设置</em>）</li>
+<li><code>led_ap_vld</code>：输出数据有效</li>
+</ul>
+<p>如果在Vitis中更新了文件，不需要在Vivado中重新添加路径。综合、RTL导出后直接在Vivado中选择刷新和升级即可。</p>
+<figure>
+<img src="https://s2.loli.net/2024/05/28/dirCDeRq3Wp6LQt.png" alt="image-20240528215241833">
+<figcaption aria-hidden="true">image-20240528215241833</figcaption>
+</figure>
+<figure>
+<img src="https://s2.loli.net/2024/05/28/9sMQ3rvSRxpAKXU.png" alt="image-20240528215308042">
+<figcaption aria-hidden="true">image-20240528215308042</figcaption>
+</figure>
+<p>之后的操作，写仿真文件，行为仿真，综合，布线，烧录和之前的开发流程没有区别。</p>
+<h2 id="vitis-hls-cc-可综合规则">2 Vitis HLS C/C++ 可综合规则</h2>
+<p>在Vitis HLS C/C++中，可综合的语句分为如下几种：</p>
+<ul>
+<li>循环语句：Vitis HLS会对循环中的内容进行优化，例如流水线等</li>
+<li>类定义：类可以被综合，但是其中的类方法不一定会被综合</li>
+<li>函数：顶层函数会被综合成顶层模块。如果顶层模块中调用了其他函数，且它不是内联函数（函数定义可以直接替换），那会在顶层模块下方例化小型的模块。</li>
+<li>数组</li>
+<li>数据类型：包含标准数据类型，和任意精度的整形<code>ap_int&lt;N&gt;</code>、<code>ap_uint&lt;N&gt;</code>（需要包含头文件<code>ap_int.h</code>）和任意精度的浮点型<code>ap_fixed&lt;N, M&gt;</code>（N是总位宽，M是整数部分位宽，需要包含头文件<code>ap_fixed.h</code>）。</li>
+<li>结构体：会被拼接成一个独立的元素。如果不想拼接就需要分开写。</li>
+</ul>
+
+    </div>
+
+    
+    <div class="about">
+        <h1>About this Post</h1>
+        <div class="details">
+            <p>This post is written by Yun Zhang, licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc/4.0">CC BY-NC 4.0</a>.</p>
+        </div>
+        
+    </div>
+    
+
+    <div class="container post-prev-next">
+        <a class="next"></a>
+        
+        <a href="/2024/05/27/deep-learning-notes/" class="prev">
+            <div>
+                <div class="text">
+                    <p class="label">Previous</p>
+                    <h3 class="title">deep_learning_notes</>
+                </div>
+            </div>
+        </a>
+        
+    </div>
+
+    
+        
+        
+    
+</article>
+
+        <footer>
+    <div class="inner">
+        <div class="links">
+            
+            <div class="group">
+                <h2 class="title">Blogs</h2>
+                
+                <a href="/" class="item">Blogs</a>
+                
+                <a href="/archives" class="item">Archives</a>
+                
+                <a href="/tags" class="item">Tags</a>
+                
+                <a href="/categories" class="item">Categories</a>
+                
+                <a href="/search" class="item">Search</a>
+                
+                <a href="/friends" class="item">Friends</a>
+                
+                <a href="/projects" class="item">Projects</a>
+                
+                <a href="/resume" class="item">Resume</a>
+                
+                <a href="/about" class="item">About</a>
+                
+                <a href="/atom.xml" class="item">RSS</a>
+                
+            </div>
+            
+            <div class="group">
+                <h2 class="title">About Me</h2>
+                
+                <a target="_blank" rel="noopener" href="https://github.com/sukiDebussy" class="item">GitHub</a>
+                
+                <a href="zydajuanb@gmail.com" class="item">Email</a>
+                
+            </div>
+            
+        </div>
+        <span>&copy; 2024 Yun Zhang<br>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> </span>
+        
+        <br>
+        <span class="footer-extra-description">追逐梦想就是追逐自己的厄运.</span>
+        
+        
+            <br>
+            <div class="color-scheme-toggle" role="radiogroup" id="theme-color-scheme-toggle">
+                <label>
+                    <input type="radio" value="light">
+                    <span>Light</span>
+                </label>
+                <label>
+                    <input type="radio" value="dark">
+                    <span>Dark</span>
+                </label>
+                <label>
+                    <input type="radio" value="auto">
+                    <span>Auto</span>
+                </label>
+            </div>
+        
+    </div>
+</footer>
+
+
+        
+<script src="/js/main.js"></script>
+
+        
+        
+        
+
+        
+        <script src="https://unpkg.com/scrollreveal"></script>
+        <script>
+            window.addEventListener('load', () => {
+                ScrollReveal({ delay: 250, reset: true, easing: 'cubic-bezier(0, 0, 0, 1)' })
+                ScrollReveal().reveal('.post-list-item .cover-img img')
+                ScrollReveal().reveal('.post-list-item, .card, .content p img, .content .block-large img', { distance: '60px', origin: 'bottom', duration: 800 })
+            })
+        </script>
+        
+    </body>
+</html>
